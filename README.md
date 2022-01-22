@@ -1,2 +1,2 @@
 # vim-mininote
-test project
+This is a plugin for vim to take a note easily in vim.
