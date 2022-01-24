@@ -29,11 +29,8 @@ function! s:mininoteFunc()
   endif
 endfunction
 function! s:openMininoteFunc()
-  let startLineNo = line("w0")
-  let endLineNo = line("w$")
-  let displayLineCnt = endLineNo - startLineNo
   execute ":topleft sp ".g:mininote_store_dir
-  execute ":resize ".displayLineCnt/3
+  execute ":resize ".&lines/3
   let g:mininote_window_id = win_getid()
 endfunction
 function! s:closeMininoteFunc()
