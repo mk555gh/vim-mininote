@@ -16,8 +16,12 @@ set cpo&vim
 command! Mininote call <SID>mininoteFunc()
 nnoremap <Plug>(vim-mininote) :Mininote<CR>
 nmap <Leader>n <Plug>(vim-mininote)
-let g:mininote_store_dir = expand('<sfile>:p:h:h')."/vim-mininote.txt"
-let g:mininote_write_cmd = ":w"
+if !exists("g:mininote_store_dir")
+  let g:mininote_store_dir = expand('<sfile>:p:h:h')."/vim-mininote.txt"
+endif
+if !exists("g:mininote_write_cmd")
+  let g:mininote_write_cmd = ":w"
+endif
 let g:mininote_window_id = 0
 function! s:mininoteFunc()
   if g:mininote_window_id == 0
