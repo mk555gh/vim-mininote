@@ -16,13 +16,13 @@ set cpo&vim
 command! Mininote call <SID>mininoteFunc()
 nnoremap <Plug>(vim-mininote) :Mininote<CR>
 nmap <Leader>n <Plug>(vim-mininote)
-let g:mk_note_store_dir = expand('<sfile>:p:h:h')."/vim-mininote.txt"
-let g:mk_note_write_cmd = ":w"
-let g:mk_note_window_id = 0
+let g:mininote_store_dir = expand('<sfile>:p:h:h')."/vim-mininote.txt"
+let g:mininote_write_cmd = ":w"
+let g:mininote_window_id = 0
 function! s:mininoteFunc()
-  if g:mk_note_window_id == 0
+  if g:mininote_window_id == 0
     call s:openMininoteFunc()
-  elseif !win_gotoid(g:mk_note_window_id)
+  elseif !win_gotoid(g:mininote_window_id)
     call s:openMininoteFunc()
   else
     call s:closeMininoteFunc()
@@ -32,14 +32,14 @@ function! s:openMininoteFunc()
   let startLineNo = line("w0")
   let endLineNo = line("w$")
   let displayLineCnt = endLineNo - startLineNo
-  execute ":topleft sp ".g:mk_note_store_dir
+  execute ":topleft sp ".g:mininote_store_dir
   execute ":resize ".displayLineCnt/3
-  let g:mk_note_window_id = win_getid()
+  let g:mininote_window_id = win_getid()
 endfunction
 function! s:closeMininoteFunc()
-  execute g:mk_note_write_cmd
+  execute g:mininote_write_cmd
   execute ":bdelete"
-  let g:mk_note_window_id = 0
+  let g:mininote_window_id = 0
 endfunction
 "
 " post-processing
