@@ -22,8 +22,8 @@ endif
 if !exists("g:mininote_write_cmd")
   let g:mininote_write_cmd = ":w"
 endif
-if !exists("g:mininote_height_denomi")
-  let g:mininote_height_denomi = 3
+if !exists("g:mininote_window_height")
+  let g:mininote_window_height = &lines/3
 endif
 let g:mininote_window_id = 0
 function! s:mininoteFunc()
@@ -37,7 +37,7 @@ function! s:mininoteFunc()
 endfunction
 function! s:openMininoteFunc()
   execute ":topleft sp ".g:mininote_store_dir
-  execute ":resize ".&lines/g:mininote_height_denomi
+  execute ":resize ".g:mininote_window_height
   let g:mininote_window_id = win_getid()
 endfunction
 function! s:closeMininoteFunc()
