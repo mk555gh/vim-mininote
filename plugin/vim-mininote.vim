@@ -23,7 +23,7 @@ if !exists("g:mininote_write_cmd")
   let g:mininote_write_cmd = ":w"
 endif
 if !exists("g:mininote_window_height")
-  let g:mininote_window_height = &lines/3
+  let g:mininote_window_height = &lines/4
 endif
 let g:mininote_window_id = 0
 function! s:mininoteFunc()
