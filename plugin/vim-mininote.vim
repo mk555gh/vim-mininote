@@ -3,7 +3,7 @@
 "
 
 "
-" pre-processing
+" pre-process
 "
 if exists("g:loaded_vim_mininote")
   finish
@@ -13,11 +13,8 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 "
-" main
+" variable
 "
-command! Mininote call <SID>mininoteFunc()
-nnoremap <Plug>(vim-mininote) :Mininote<CR>
-nmap <Leader>n <Plug>(vim-mininote)
 if !exists("g:mininote_store_path")
   let g:mininote_store_path = expand('<sfile>:p:h:h')."/vim-mininote.txt"
 endif
@@ -27,6 +24,10 @@ endif
 if !exists("g:mininote_window_height")
   let g:mininote_window_height = &lines/4
 endif
+
+"
+" function
+"
 let g:mininote_window_id = 0
 function! s:mininoteFunc()
   if g:mininote_window_id == 0
@@ -49,7 +50,14 @@ function! s:closeMininoteFunc()
 endfunction
 
 "
-" post-processing
+" command, map
+"
+command! Mininote call <SID>mininoteFunc()
+nnoremap <Plug>(vim-mininote) :Mininote<CR>
+nmap <Leader>n <Plug>(vim-mininote)
+
+"
+" post-process
 "
 let &cpo = s:save_cpo
 unlet s:save_cpo
