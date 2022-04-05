@@ -53,8 +53,7 @@ endfunction
 " command, map
 "
 command! Mininote call <SID>mininoteFunc()
-nnoremap <Plug>(vim-mininote) :Mininote<CR>
-nmap <Leader>n <Plug>(vim-mininote)
+nnoremap <Plug>(vim-mininote) :call <SID>mininoteFunc()<CR>
 
 "
 " post-process
