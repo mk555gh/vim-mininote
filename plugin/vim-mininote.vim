@@ -34,7 +34,7 @@ endif
 " function
 "
 let g:mininote_window_id = 0
-function! s:mininoteFunc()
+function! s:mininoteToggleFunc()
   if g:mininote_window_id == 0
     call s:openMininoteFunc()
   elseif !win_gotoid(g:mininote_window_id)
@@ -57,8 +57,8 @@ endfunction
 "
 " command, map
 "
-command! Mininote call <SID>mininoteFunc()
-nnoremap <Plug>(vim-mininote) :call <SID>mininoteFunc()<CR>
+command! Mininote call <SID>mininoteToggleFunc()
+nnoremap <Plug>(mininote-toggle) :call <SID>mininoteToggleFunc()<CR>
 
 "
 " post-process
