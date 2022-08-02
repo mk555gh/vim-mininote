@@ -13,11 +13,6 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 "
-" autocmd
-"
-autocmd BufNewFile,BufRead vim-mininote.txt set filetype=txt
-
-"
 " variable
 "
 if !exists("g:mininote_store_path")
