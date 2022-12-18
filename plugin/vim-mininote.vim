@@ -45,7 +45,7 @@ function! s:openMininoteFunc()
 endfunction
 function! s:closeMininoteFunc()
   execute g:mininote_write_cmd
-  execute ":bdelete"
+  execute ":bwipeout"
   let g:mininote_window_id = 0
 endfunction
 
